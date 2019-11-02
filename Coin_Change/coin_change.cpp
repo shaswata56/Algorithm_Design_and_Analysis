@@ -10,9 +10,9 @@ void printCombinations(int startIndex, int totalAmount)
 		for(int i = 0; i < n; i++)
 		{
 			if(i == n - 1)
-				printf(" %d * %d\n", counts[i], coins[i]);
+				printf(" %d x %d\n", counts[i], coins[i]);
 			else
-				printf(" %d * %d,", counts[i], coins[i]);
+				printf(" %d x %d,", counts[i], coins[i]);
 		}
 	}
 	else if(startIndex == n - 1)
@@ -28,7 +28,8 @@ void printCombinations(int startIndex, int totalAmount)
 		for(int i = 0; i <= totalAmount / coins[startIndex]; i++)
 		{
 			counts[startIndex] = i;
-			printCombinations(startIndex + 1, totalAmount - coins[startIndex] * i);
+			printCombinations(startIndex + 1, 
+					totalAmount - coins[startIndex] * i);
 		}
 	}
 }
@@ -36,7 +37,7 @@ void printCombinations(int startIndex, int totalAmount)
 int main()
 {
 	n = sizeof(coins) / sizeof(coins[0]);
-	value = 5;
+	value = 20;
 	printCombinations(0, value);
 	return 0;
 }
